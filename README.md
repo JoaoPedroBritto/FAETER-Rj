@@ -13,14 +13,14 @@ Aqui encontrará uma coleção de códigos que venho a desenvolver ao longo do t
 
 ## 📦 meu-repositorio
 ```text
+📦 meu-repositorio
 ┣ 📂 faculdade
-┃ ┣ 📂 semestre_01
-┃ ┃ ┣ 📂 exercicios_c
-┃ ┃ ┗ 📂 provas
-┃ ┗ 📂 semestre_02
-┃   ┗ 📂 introducao_java
+┃ ┣ 📂 desenvolvimento_web
+┃ ┃ ┣ 📂 exercicios
+┃ ┃ ┗ 📂 testes_e_provas
+┃ ┗ 📂 fundamentos_de_programacao
+┃   ┣ 📂 exercicios
+┃   ┗ 📂 testes_e_provas
 ┣ 📂 projetos_independentes
-┃ ┣ 📂 sistema_sorveteria_fullstack
-┃ ┣ 📂 estudos_ciberseguranca
-┃ ┗ 📂 scripts_e_testes_aleatorios
+┃ ┣ 📂 desenvolvimento_web
 ┗ 📜 README.md
