@@ -9,7 +9,7 @@ Aqui encontrará uma coleção de códigos que venho a desenvolver ao longo do t
 ## 🛠️ Tecnologias e Ferramentas
 
 * **Linguagens:** C, JavaScript
-* **Desenvolvimento Web:** HTML, CSS, Node.js
+* **Desenvolvimento Web:** HTML, CSS, Node.js, jQuery
 
 ## 📦 meu-repositorio
 ```text
