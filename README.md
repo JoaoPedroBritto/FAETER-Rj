@@ -22,5 +22,5 @@ Aqui encontrará uma coleção de códigos que venho a desenvolver ao longo do t
 ┃   ┣ 📂 exercicios
 ┃   ┗ 📂 testes_e_provas
 ┣ 📂 projetos_independentes
-┃ ┣ 📂 projetos
+┃ ┣ 📂 ...
 ┗ 📜 README.md
