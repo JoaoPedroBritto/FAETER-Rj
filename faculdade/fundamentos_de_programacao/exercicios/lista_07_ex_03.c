@@ -1,3 +1,10 @@
+/*
+Questão 03:
+O conceito de simetria de matrizes considera a diagonal principal como referencial. Porém, supondo que se deseja
+determinar se uma matriz é simétrica em relação às colunas, pede-se o desenvolvimento de uma função que, dada uma
+matriz de ordem n, verifique se é ou não “simétrica verticalmente”.
+*/
+
 #include<stdio.h>
 #include<stdlib.h>
 
