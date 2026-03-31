@@ -37,19 +37,19 @@ e modifique apenas a tag script, já indicada no código.
         $(function () {
 
             $('#incluir_tarefa').click(function () {
-                var txt_tarefa = $('#nova_tarefa').val().trim()
+                var txt_tarefa = $('#nova_tarefa').val().trim();
                 if (txt_tarefa !== "") {
-                    var novo_item = $('<div><input type="checkbox"/><span>' + txt_tarefa + '</span></div>')
-                    $('#tarefas').append(novo_item)
+                    var novo_item = $('<div><input type="checkbox"/><span>' + txt_tarefa + '</span></div>');
+                    $('#tarefas').append(novo_item);
                 }
                 else{
-                    alert("Digite uma tarefa!")
+                    window.alert("Digite uma tarefa!");
                 }
                 $('#nova_tarefa').val('').focus();
             })  
 
             $('#excluir_tarefas').click(function () {
-                $('#tarefas input:checked').parent().remove()
+                $('#tarefas input:checked').parent().remove();
             })
             
         })
