@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-Br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício AJAX - Perfil</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+
+    <h2>Perfil do Colaborador</h2>
+    <button id="btn_carregar">Carregar Perfil</button>
+
+    <hr>
+
+    <div id="cartao_perfil" style="display: none;">
+        <img id="foto_usuario" src="" alt="Foto de perfil" width="100" style="border-radius: 50%;">
+        
+        <p><strong>Nome Completo:</strong> <span id="nome_usuario"></span></p>
+        <p><strong>E-mail:</strong> <span id="email_usuario"></span></p> <!-- era pra usar o email, pois estava usando outra api-->
+    </div>
+
+    <script>
+        // SEU CÓDIGO AJAX ENTRA AQUI!
+        // 1. Faça a requisição para "https://reqres.in/api/users/2"
+        // 2. No success, pegue o first_name e o last_name e junte os dois no span #nome_usuario
+        // 3. Pegue o email e coloque no span #email_usuario
+        // 4. Mostre a div #cartao_perfil (dica: lembra do slideDown() ou show()?)
+
+        $(function() {
+            $("#btn_carregar").click(function () {
+                
+                $.ajax({
+                    url: "https://api.github.com/users/torvalds",
+                    type: "GET",
+                    dataType: "json",
+                    
+                    success: function (retorno) {
+                        var link_foto = retorno.avatar_url;
+                        $("#foto_usuario").attr("src", link_foto);
+                        $("#nome_usuario").html(retorno.name);
+                        $("#email_usuario").html(retorno.login); <!-- a outra api não é mais aberta-->
+                        $("#cartao_perfil").show();
+                    },       
+                    error: function () {
+                        window.alert("Erro de requisição.")
+                    },        
+                })
+            });
+        });
+    </script>
+
+</body>
+</html>
