@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-Br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício AJAX - Tabela</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style> 
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+
+    <h2>Painel Administrativo - Usuários</h2>
+    <button id="btn_listar">Carregar Lista de Usuários</button>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>E-mail</th>
+                <th>Empresa</th>
+            </tr>
+        </thead>
+        <tbody id="corpo_tabela">
+            
+        </tbody>
+    </table>
+
+    <script>
+        $(function() {
+            $("#btn_listar").click(function () {
+
+                $.ajax({
+                    url:"https://jsonplaceholder.typicode.com/users",
+                    type:"GET",
+                    dataType:"json",
+                    
+                    success: function (retorno) {
+                        $("#corpo_tabela").empty();
+                        
+                        for (let i = 0; i < retorno.length; i++) {
+                            const usuario = retorno[i];
+                            let linha = "<tr>" +
+                                        "<td>" + usuario.name + "</td>" +
+                                        "<td>" + usuario.email + "</td>" +
+                                        "<td>" + usuario.company.name + "</td>" +
+                                        "</tr>";
+                            $("#corpo_tabela").append(linha);
+                        }  
+                    },
+                    error: function (retorno) {
+                        window.alert("Erro de requisição.");
+                    }
+                })
+
+            });
+        });
+    </script>
+
+</body>
+</html>
