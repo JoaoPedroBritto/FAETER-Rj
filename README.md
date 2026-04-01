@@ -8,8 +8,8 @@ Aqui encontrará uma coleção de códigos que venho a desenvolver ao longo do t
 
 ## 🛠️ Tecnologias e Ferramentas
 
-* **Linguagens:** C, JavaScript, PHP.
-* **Desenvolvimento Web:** HTML, CSS, Node.js, jQuery, AJAX.
+* **Linguagens:** C, JavaScript, PHP
+* **Desenvolvimento Web:** HTML, CSS, Node.js, jQuery, AJAX
 
 ## 📦 meu-repositorio
 ```text
