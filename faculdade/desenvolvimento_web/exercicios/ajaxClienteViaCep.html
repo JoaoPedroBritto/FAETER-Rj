@@ -1,0 +1,80 @@
+<!--
+O serviço ViaCep (https://viacep.com.br/) é um serviço gratuito pela internet para consulta de dados de endereçamento.
+
+P.ex., o CEP da faculdade (21311-281) pode ser consultado com a requisição:
+
+https://viacep.com.br/ws/21311281/json/
+
+e retorna:
+
+{
+  "cep": "21311-281",
+  "logradouro": "Rua Clarimundo de Melo",
+  "complemento": "de 815 a 1039 - lado ímpar",
+  "bairro": "Quintino Bocaiúva",
+  "localidade": "Rio de Janeiro",
+  "uf": "RJ",
+  "ibge": "3304557",
+  "gia": "",
+  "ddd": "21",
+  "siafi": "6001"
+}
+Faça um tela HTML que, dado um CEP, informe o logradouro, a localidade e a UF.
+
+Use AJAX para consulta o web service.
+-->
+
+<!DOCTYPE html>
+<html lang="pt-Br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar logradouro</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+
+    <p>Informe o cep:</p>
+    <input type="text" id="txt_cep">
+    <button id="btn_buscar">Buscar</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        $(function() {
+            
+            $("#btn_buscar").click(function () {
+                
+                var cep = $("#txt_cep").val();
+
+                $.ajax({
+                    url: "https://viacep.com.br/ws/"+ cep +"/json/",
+                    type: "GET",
+                    dataType: "json",
+
+                    success: function (retorno) {
+                        if(!retorno.erro)
+                            $("#resultado").html(
+                                "Logradouro: " + retorno.logradouro + "<br>" +
+                                "Localidade: " + retorno.localidade + "<br>" +
+                                "UF: " + retorno.uf
+                            );
+                        else{
+                            window.alert("Insira um cep válido.");
+                        }
+                        $('#txt_cep').val('').focus();
+                    },
+
+                    error: function () {
+                        window.alert("Ocorreu um erro de requisição.");
+                    },
+
+                })
+
+            })
+
+        })
+    </script>
+
+</body>
+</html>
