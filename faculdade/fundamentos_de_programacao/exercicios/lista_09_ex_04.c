@@ -1,3 +1,10 @@
+/*
+Questão 04:
+Desenvolver uma função que, dado um arquivo
+texto contendo números, determine se estes
+encontram-se ordenados crescentemente. 
+*/
+
 #include<stdio.h>
 #include<string.h>
 
