@@ -8,7 +8,7 @@ Aqui encontrará uma coleção de códigos que venho a desenvolver ao longo do t
 
 ## 🛠️ Tecnologias e Ferramentas
 
-* **Linguagens:** C, JavaScript, PHP
+* **Linguagens:** C, JavaScript, PHP, Java
 * **Desenvolvimento Web:** HTML, CSS, Node.js, jQuery, AJAX
 
 ## 📦 meu-repositorio
@@ -19,8 +19,9 @@ Aqui encontrará uma coleção de códigos que venho a desenvolver ao longo do t
 ┃ ┃ ┣ 📂 exercicios
 ┃ ┃ ┗ 📂 testes_e_provas
 ┃ ┗ 📂 fundamentos_de_programacao
-┃   ┣ 📂 exercicios
-┃   ┗ 📂 testes_e_provas
+┃ ┃ ┣ 📂 exercicios
+┃ ┃ ┗ 📂 testes_e_provas
+┃ ┗ 📂 estrutura_de_dados
 ┣ 📂 projetos_independentes
 ┃ ┣ 📂 ...
 ┗ 📜 README.md
