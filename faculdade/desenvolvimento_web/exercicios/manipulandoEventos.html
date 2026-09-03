@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<button id="btn">Clique-me!</button>
+
+<p id="resultado"></p>
+<p id="aviso">Eu sou um texto engraçado!</p>
+
+    <script>
+        var botao = document.querySelector("#btn");
+        var resultado = document.querySelector("#resultado");
+        var aviso = document.querySelector("#aviso");
+
+        botao.addEventListener('click', function() {
+            resultado.innerText = 'Clicado no botão!';
+        });
+        aviso.addEventListener('mouseover', function() {
+            aviso.style.color = 'red';
+        });
+        aviso.addEventListener('mouseout', function() {
+            aviso.style.color = 'black';
+        });
+
+    </script>
+</body>
+</html>

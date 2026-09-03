@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Carrinho de Compras</title>
+  </head>
+  <body>
+
+      <table border="1" id="produtos">
+      </table>
+
+      <div id="resumo"></div>
+
+      <script type="text/javascript">
+
+      function Produto(id, descricao, preco) {
+        this.id = id;
+        this.descricao = descricao;
+        this.preco = preco;
+        this.getDescricao = function() {
+          return this.descricao;
+        };
+        this.getPreco = function() {
+          return this.preco;
+        };
+        this.getId = function() {
+          return this.id;
+        };
+      }
+
+      function Item(produto, quantidade) {
+        this.produto = produto;
+        this.quantidade = quantidade;
+        this.calcularTotalItem = function() {
+            return this.produto.getPreco() * this.quantidade;
+        };
+      }
+
+      function Carrinho() {
+        this.itens = [];
+        this.adicionar = function(item) {
+          var encontrado = false;
+          for (var i = 0; i < this.itens.length; i++) {
+            if (this.itens[i].produto.getId() === item.produto.getId()) {
+              this.itens[i].quantidade += item.quantidade;
+              encontrado = true;
+              break;
+            }
+          }
+          
+          if (!encontrado) {
+            this.itens.push(item);
+          }
+
+          var resumo = document.querySelector("#resumo");
+          var conteudo = "<h3>Produtos na Cesta:</h3><ul>";
+          for (var j = 0; j < this.itens.length; j++) {
+            conteudo += "<li>" + this.itens[j].produto.getDescricao() + " - Quantidade: " + this.itens[j].quantidade + "</li>";
+          }
+          conteudo += "</ul><strong>Valor total = " + this.getValorTotal().toFixed(2) + "</strong>";
+          resumo.innerHTML = conteudo;
+        };
+        
+        this.getValorTotal = function() {
+          var total = 0.0;
+          for(var i=0; i < this.itens.length; i++) {
+            var item = this.itens[i];
+            total += item.calcularTotalItem();
+          }
+          return total;
+        };
+      }
+
+      function criarProdutos() {
+        var produtos = [];
+        produtos.push(new Produto(1, "Bola", 50.12));
+        produtos.push(new Produto(2, "Chuteira", 200.0));
+        produtos.push(new Produto(3, "Meia", 16.60));
+        produtos.push(new Produto(4, "Caneleira", 50.00));
+        return produtos;
+      }
+
+      var produtos = criarProdutos();
+      var carrinho = new Carrinho();
+
+      function adicionarAoCesto(idProduto) {
+        var qtdString = prompt("Informe a quantidade a adicionar na cesta:", "1");
+        
+        if (qtdString === null || qtdString.trim() === "") {
+          return;
+        }
+        
+        var qtd = parseInt(qtdString);
+        
+        if (isNaN(qtd) || qtd <= 0) {
+          alert("Quantidade inválida.");
+          return;
+        }
+
+        var regexpId = /produto(\d)+/;
+        var tokens = regexpId.exec(idProduto);
+        var id = parseInt(tokens[1]);
+
+        for(var i=0; i < produtos.length; i++) {
+          var produto = produtos[i];
+          if(produto.getId() === id) {
+            carrinho.adicionar(new Item(produto, qtd));
+            return;
+          }
+        }
+        alert("produto nao identificado");
+      }
+
+      function desenharProdutos(produtos) {
+        var tabela = document.querySelector("#produtos");
+        for(var i=0; i < produtos.length; i++) {
+          var produto = produtos[i];
+          var linha = document.createElement("tr");
+
+          var celulaDescricao = document.createElement("td");
+          var textoDescricao = document.createTextNode(produto.descricao);
+          celulaDescricao.appendChild(textoDescricao);
+          linha.appendChild(celulaDescricao);
+
+          var celulaPreco = document.createElement("td");
+          var textoPreco = document.createTextNode(produto.preco.toFixed(2));
+          celulaPreco.appendChild(textoPreco);
+          linha.appendChild(celulaPreco);
+
+          var celulaAdicionar = document.createElement("td");
+          var botao = document.createElement("button");
+          var textoBotao = document.createTextNode("Adicionar");
+          botao.setAttribute("id", "produto" + produto.getId());
+          botao.appendChild(textoBotao);
+          botao.onclick = function() {
+            adicionarAoCesto(this.id);
+          };
+          celulaAdicionar.appendChild(botao);
+          linha.appendChild(celulaAdicionar);
+
+          tabela.appendChild(linha);
+        }
+      }
+
+      desenharProdutos(produtos);
+      </script>
+  </body>
+</html>
