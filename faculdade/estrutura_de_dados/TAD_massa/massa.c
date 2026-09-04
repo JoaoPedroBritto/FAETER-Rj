@@ -45,7 +45,7 @@ char* mas_paraString (tMas* p) {
 }
 int mas_paraGramas (tMas* p){
     if(p == NULL){
-        return NULL;
+        return 0;
     }
 
     return (p->kg * 1000) + p->g;

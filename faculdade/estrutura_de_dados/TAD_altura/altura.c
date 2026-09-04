@@ -4,13 +4,13 @@
 #include<stdlib.h>
 #include"altura.h"
 
-struct altura{
+struct alt{
     int m;
     int cm;
 };
 
-tAltura* alt_cria(int m, int cm) {
-    tAltura* p = (tAltura*) malloc(sizeof(tAltura));
+tAlt* alt_cria(int m, int cm) {
+    tAlt* p = (tAlt*) malloc(sizeof(tAlt));
 
     if (p == NULL) {
         return NULL;
@@ -25,12 +25,12 @@ tAltura* alt_cria(int m, int cm) {
 
     return p;
 }
-void alt_libera(tAltura* p){
+void alt_libera(tAlt* p){
     if(p != NULL){
         free(p);
     }
 }
-char* alt_paraString(tAltura* p){
+char* alt_paraString(tAlt* p){
     if (p == NULL) {
         return NULL;
     }
@@ -42,14 +42,14 @@ char* alt_paraString(tAltura* p){
 
     return str;
 }
-int alt_paraCentimetros(tAltura* p){
+int alt_paraCentimetros(tAlt* p){
     if (p == NULL) {
         return 0;
     }
 
     return (p->m * 100) + p->cm;
 }
-int alt_compara(tAltura* p1, tAltura* p2){
+int alt_compara(tAlt* p1, tAlt* p2){
     if (p1 == NULL || p2 == NULL){
         return 0;
     }

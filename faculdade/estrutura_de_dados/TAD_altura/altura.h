@@ -3,11 +3,11 @@
 #ifndef ALTURA_H_INCLUDED
 #define ALTURA_H_INCLUDED
 
-typedef struct altura tAltura;
-tAltura* alt_cria(int m, int cm);
-void alt_libera(tAltura* p);
-char* alt_paraString(tAltura* p);
-int alt_paraCentimetros(tAltura* p);
-int alt_compara(tAltura* p1, tAltura* p2);
+typedef struct alt tAlt;
+tAlt* alt_cria(int m, int cm);
+void alt_libera(tAlt* p);
+char* alt_paraString(tAlt* p);
+int alt_paraCentimetros(tAlt* p);
+int alt_compara(tAlt* p1, tAlt* p2);
 
 #endif // ALTURA_H_INCLUDED
