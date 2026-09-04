@@ -18,10 +18,10 @@ Aqui encontrará uma coleção de códigos que venho a desenvolver ao longo do t
 ┃ ┣ 📂 desenvolvimento_web
 ┃ ┃ ┣ 📂 exercicios
 ┃ ┃ ┗ 📂 testes_e_provas
+┃ ┗ 📂 estrutura_de_dados
 ┃ ┗ 📂 fundamentos_de_programacao
 ┃ ┃ ┣ 📂 exercicios
 ┃ ┃ ┗ 📂 testes_e_provas
-┃ ┗ 📂 estrutura_de_dados
 ┣ 📂 projetos_independentes
 ┃ ┣ 📂 ...
 ┗ 📜 README.md
